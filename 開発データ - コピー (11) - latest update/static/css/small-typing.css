@@ -1,0 +1,182 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f2f2f2;
+}
+
+.game-container {
+    margin: 100px auto;
+    padding: 20px;
+    width: 400px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    font-size: 24px;
+    line-height: 10px;
+}
+
+#word_moto {
+    font-size: 35px;
+    line-height: 10px;
+}
+
+#word_hira {
+    font-size: 30px;
+    line-height: 10px;
+}
+
+#word_roma {
+    font-size: 25px;
+    line-height: 10px;
+}
+
+#input-status {
+    font-size: 18px;
+    line-height: 10px;
+}
+
+#score-display {
+    font-weight: bold;
+    display: inline-block;
+    line-height: 10px;
+}
+
+.completed {
+    color: green;
+}
+
+.in-progress {
+    color: orange; /* 入力中の文字色を設定 */
+}
+
+/* フォーカス時のスタイル */
+input:focus {
+    border-color: #48a7f2;
+    }
+
+input::placeholder {
+    text-align: center; /* placeholder を中央に配置する */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    color: #999; /* placeholder の色を設定 */
+    text-align: center; /* placeholder を中央に配置する */
+}
+
+/* 追加のCSSスタイル */
+.ranking-container {
+    width: 750px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    overflow-y: auto; /* ランキングが収まらない場合のスクロールを有効にする */
+    max-height: 400px; /* 表示する最大の高さを設定 */
+}
+
+.rank-item {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #eee;
+    border-radius: 5px;
+}
+
+.highlight {
+    background-color: #fff5cc; /* より明るい色に変更 */
+}
+
+
+/* 1位（金） */
+.rank-item:nth-child(1) {
+    background-color: gold; /* 1位の背景色 */
+}
+
+/* 2位（銀） */
+.rank-item:nth-child(2) {
+    background-color: silver; /* 2位の背景色 */
+}
+
+/* 3位（銅） */
+.rank-item:nth-child(3) {
+    background-color: #cd7f32; /* 3位の背景色 */
+}
+
+#ranking {
+    font-size: 30px;
+    font-weight: bold;
+    display: inline-block;
+}
+
+.highlight_top1 {
+    background: linear-gradient(45deg, #f00, #ff0, #0f0, #0ff, #00f, #f0f); /* 虹色のグラデーション */
+    background-size: 600% 600%; /* グラデーションのサイズ */
+    background-size: 600% 600%; /* グラデーションのサイズ */
+    animation: rainbow 18s linear infinite; /* アニメーション設定 */
+}
+
+.highlight_top2 {
+    background: linear-gradient(45deg, #f00, #ff0, #0f0, #0ff, #00f, #f0f); /* 虹色のグラデーション */
+    background-size: 600% 600%; /* グラデーションのサイズ */
+    background-size: 600% 600%; /* グラデーションのサイズ */
+}
+
+/* グラデーションのアニメーション */
+@keyframes rainbow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.highlight_top3 {
+    background: linear-gradient(to right, #ff7733, #ffcc33); /* グラデーション */
+    color: #fff;
+    font-weight: bold;
+}
+
+#time-display {
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+button {
+    padding: 15px 30px;
+    border: none;
+    border-radius: 8px;
+    background: #3498db;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+button:hover {
+    background: #217dbb;
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+/* インプットボックスのスタイリング */
+input {
+    width: 200px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    font-size: 16px;
+    text-align: center; /* 入力されたテキストを中央に配置 */
+}
+
+
+/* フォーカス時のスタイル */
+input:focus {
+    border-color: #48a7f2;
+    }

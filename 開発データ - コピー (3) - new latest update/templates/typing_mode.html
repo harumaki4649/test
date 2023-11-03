@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>モード選択</title>
+    <link rel="stylesheet" href="http://127.0.0.1/static/css/typing_mode.css">
+</head>
+<body>
+    <div class="container">
+        <div class="modal">
+            <div class="modal-content">
+                <h2>注意</h2>
+                <p>・文章は自動で生成されています</p>
+                <p>・様々な打ち方に対応させましたがエラーが発生する場合がございます</p>
+                <p>・読みは自動変換なので本来の読み方と異なる場合がございます</p>
+                <p>・エラーが発生すると予告なしにページが再度読み込みなおされます</p>
+                <p>・問題が発生する可能性があることをご承知の上でお願いいたします</p>
+            </div>
+        </div>
+
+        <div class="mode-selection" style="display: none;">
+            <h1>モードを選択してください</h1>
+            <button onclick="redirectToMode('mode1')">小さい（四角）</button>
+            <button onclick="redirectToMode('mode2')">通常（四角）</button>
+            <button onclick="redirectToMode('mode3')">通常（丸）</button>
+        </div>
+    </div>
+
+    <script src="http://127.0.0.1/static/js/typing_mode.js"></script>
+</body>
+</html>

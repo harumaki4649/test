@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<!-- ライブラリの読み込み -->
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>タイピングゲーム</title>
+    <link rel="stylesheet" type="text/css" href="http://127.0.0.1:80/static/css/{{ css }}">
+</head>
+<body>
+    <div class="game-container">
+        <h1>タイピングゲーム</h1>
+        <p id="word_moto"></p>
+        <p id="word_hira">Now Loading...</p>
+        <p id="word_roma"></p>
+        <div id="nickname" style="display: none;">
+            <form id="nickname-form">
+                <input type="text" id="nickname-input" placeholder="ニックネーム" pattern=".{1,15}" maxlength="15" required>
+                <br><br>
+                <button type="submit">ランキングを表示</button>
+            </form>
+        </div>
+        <p id="input-status"></p>
+        <div id="retry" style="display: none;">
+            <form id="retry-form">
+                <button type="submit">リトライ</button>
+            </form>
+        </div>
+        <p id="score-display">スコア: <span id="score">0</span></p>
+        <p id="time-display">1:00</p> <!-- 残り時間表示 -->
+        <div id="retry-mode" style="display: none;">
+            <form id="retry-form-mode">
+                <button type="submit">モード選択へ</button>
+            </form>
+        </div>
+    </div>
+</body>
+<script src="http://127.0.0.1:80/static/js/keygraph.js"></script>
+<script src="http://127.0.0.1:80/static/js/sound.js"></script>
+<script src="http://127.0.0.1:80/static/js/typing.js"></script>
+</html>

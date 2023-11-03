@@ -1,0 +1,34 @@
+<!-- ライブラリの読み込み -->
+<script src="keygraph.js"></script>
+
+<script>
+    // DAGの作成、keygraph.jsを読み込むとkeygraph変数が使えるようになります。
+    keygraph.build("ひっしゅう");
+
+    // これから打つキー、すでに打ったキーを表示、 ... は適宜変更してください。
+    const disp = ()=>{
+        // これからタイプしなければいけないキーの取得
+        document.getElementById("a").innerText = keygraph.key_candidate();
+
+        // タイプし終わったキーの取得
+        document.getElementById("b").innerText = keygraph.key_done();
+
+        // これから打つ ひらがな の取得
+        document.getElementById("c").innerText = keygraph.seq_candidates();
+
+        // 打ち終わった ひらがな の取得
+        document.getElementById("d").innerText = keygraph.seq_done();
+    }
+
+    // keydownのイベント処理
+    document.body.addEventListener("keydown", e => {
+        if (keygraph.next(e.key)) {
+            // 入力がタイピングするキーと一致している場合
+        }
+        if (keygraph.is_finished()) {
+            // すべての文字をタイプし終わったとき
+        }
+        disp();
+    });
+    disp();
+</script>

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<html>
+<head>
+      <meta charset="UTF-8">
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"> <!-- ここでCSSファイルを読み込む -->
+    <title>セキュリティの設定</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        label {
+            font-weight: bold;
+        }
+        .input-group {
+            margin-bottom: 20px;
+        }
+        .input-group label,
+        .input-group input {
+            display: block;
+        }
+        .input-group input {
+            width: 97%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .btn2 {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            display: block;
+	        margin: auto;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f7f7f7;
+        }
+        .dashboard {
+            background-color: #ffffff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin: 50px auto;
+            max-width: 800px;
+        }
+        .dashboard h2 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+        .dashboard p {
+            color: #777;
+            margin-bottom: 20px;
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+                        background-color: #007bff;
+            color: #fff;
+            border-radius: 5px;
+            text-decoration: none;
+            display: block;
+	        margin: auto;
+        }
+        .btn-logout {
+            background-color: #007bff;
+            color: #fff;
+            display: block;
+	        margin: auto;
+        }
+.toggle-button-002 {
+    display: inline-block;
+    position: relative;
+    width: 100px;
+    height: 50px;
+    border-radius: 50px;
+    border: 3px solid #dddddd;
+    box-sizing: content-box;
+    cursor: pointer;
+    transition: border-color .4s;
+}
+
+.toggle-button-002:has(:checked) {
+    border-color: #4bd865;
+}
+
+.toggle-button-002::after {
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background-color: #dddddd;
+    content: '';
+    transition: left .4s;
+}
+
+.toggle-button-002:has(:checked)::after {
+    left: 50px;
+    background-color: #4bd865;
+}
+
+.toggle-button-002 input {
+    display: none;
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>アカウント設定</h1>
+            <div class="dashboard">
+            <div class="content">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <ul class="flashes">
+                    {% for category, message in messages %}
+                        <li class="{{ category }}">{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+
+        {% block content %}{% endblock %}
+    </div>
+        <form method="post">
+            <div align="center" class="input-group">
+                <label for="email">セキュリティ</label>
+                <label class="toggle-button-002">
+                <input type="checkbox" id="security" name="security" {% if setting_1 == 1 %}checked{% endif %} value="1"></label>
+            </div>
+            <button type="submit" class="btn2">保存</button>
+
+            <div class="dashboard">
+            <a href="{{ url_for('settings') }}" class="btn btn-logout">戻る</a>
+            </div>
+            <div class="dashboard">
+            <a href="{{ url_for('dashboard') }}" class="btn btn-logout">ダッシュボード</a>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"> <!-- ここでCSSファイルを読み込む -->
+    <title>{% block title %}{% endblock %}</title>
+</head>
+
+<div class="login">
+  <h1>ななはる♪ New</h1>
+    <div class="content">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <ul class="flashes">
+                    {% for category, message in messages %}
+                        <li class="{{ category }}">{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+
+        {% block content %}{% endblock %}
+    </div>
+    <form method="post">
+      <input type="text" name="username" placeholder="ユーザー名" required="required" maxlength="15" />
+        <input type="password" name="password" placeholder="パスワード" required="required" maxlength="50" />
+        <button type="submit" class="btn btn-primary btn-block btn-large">ログイン</button>
+    </form>
+    <style>
+    .linkbutton{
+    text-align: center;
+    }
+    </style>
+
+    <div class="linkbutton">
+    <a href="register">登録はこちら</a>
+    </div>
+</div>

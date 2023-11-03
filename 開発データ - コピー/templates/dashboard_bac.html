@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ダッシュボード</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f7f7f7;
+        }
+        .dashboard {
+            background-color: #ffffff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin: 50px auto;
+            max-width: 800px;
+        }
+        .dashboard h2 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+        .dashboard p {
+            color: #777;
+            margin-bottom: 20px;
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #ffffff;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+        .btn-logout {
+            background-color: #dc3545;
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard">
+        <h2>ダッシュボードへようこそ、{{ username }}!</h2>
+        <p>近日中にメール機能が実装されます</p>
+        <a href="{{ url_for('logout') }}" class="btn btn-logout">ログアウト</a>
+    </div>
+</body>
+</html>

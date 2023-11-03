@@ -1,0 +1,54 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f2f2f2;
+}
+
+.game-container {
+    margin: 100px auto;
+    padding: 20px;
+    width: 400px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    font-size: 24px;
+    line-height: 10px;
+}
+
+#word_moto {
+    font-size: 35px;
+    line-height: 10px;
+}
+
+#word_hira {
+    font-size: 30px;
+    line-height: 10px;
+}
+
+#word_roma {
+    font-size: 25px;
+    line-height: 10px;
+}
+
+#input-status {
+    font-size: 18px;
+    line-height: 10px;
+}
+
+#score-display {
+    font-weight: bold;
+    display: inline-block;
+    line-height: 10px;
+}
+
+.completed {
+    color: green;
+}
+
+.in-progress {
+    color: orange; /* 入力中の文字色を設定 */
+}

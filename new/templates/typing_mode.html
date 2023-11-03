@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>モード選択</title>
+    <link rel="stylesheet" href="https://mail.disnana.com/static/css/typing_mode.css">
+</head>
+<body>
+    <div class="container">
+        <div class="modal">
+            <div class="modal-content">
+                <h2>注意</h2>
+                <p>・文章は自動で生成されています</p>
+                <p>・様々な打ち方に対応させましたがエラーが発生する場合がございます</p>
+                <p>・読みは自動変換なので本来の読み方と異なる場合がございます</p>
+                <p>・エラーが発生するとアラートが表示されその間カウントは停止し、アラートを閉じると再開します。</p>
+                <p>※ 閉じた後何かしらのキーを押さないと次に進めませんがご容赦ください</p>
+                <p>※ また、何かしらのキーを押さなくてもカウントは進んでしまいますのでできるだけ早く行うことお勧めいたします</p>
+                <p>・問題が発生する可能性があることをご承知の上でお願いいたします</p>
+            </div>
+        </div>
+
+        <div class="mode-selection" style="display: none;">
+            <h1>モードを選択してください</h1>
+                <label for="autoGenerateToggle">問題を自動生成する</label>
+            <br>
+                <label class="switch">
+                <input type="checkbox" id="autoGenerateToggle" onchange="toggleAutoGenerate()">
+                <span class="slider round"></span>
+            </label>
+            <br><br>
+            <button onclick="redirectToMode('mode1')">小さい（四角）</button>
+            <button onclick="redirectToMode('mode2')">通常（四角）</button>
+            <button onclick="redirectToMode('mode3')">通常（丸）</button>
+        </div>
+    </div>
+
+    <script src="https://mail.disnana.com/static/js/typing_mode.js"></script>
+</body>
+</html>

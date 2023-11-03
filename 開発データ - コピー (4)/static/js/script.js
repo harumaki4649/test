@@ -1,0 +1,81 @@
+document.addEventListener('DOMContentLoaded', function() {
+    const emailList = document.getElementById('email-list');
+    const emailSender = document.getElementById('email-sender');
+    const emailDate = document.getElementById('email-date');
+    const emailRecipient = document.getElementById('email-recipient');
+    const emailSubject = document.getElementById('email-subject');
+    const emailContent = document.getElementById('email-content');
+    const updateButton = document.getElementById('update-button');
+
+    let selectedEmailId = null;
+    let data = []; // メールデータを格納する配列
+
+    // メールデータを取得する関数
+    function getEmails() {
+        fetch('/get_emails')
+            .then(response => response.json())
+            .then(result => {
+                data = result; // メールデータを更新
+                renderEmails(data); // メール一覧を表示
+            });
+    }
+
+    // メール一覧を表示する関数
+    function renderEmails(data) {
+        emailList.innerHTML = '';
+
+        data.forEach(email => {
+            const listItem = document.createElement('li');
+            listItem.dataset.id = email.id;
+            listItem.innerHTML = `
+                <a href="#">
+                    <strong>${email.sender}</strong> - ${email.subject}<br>
+                    <small>${email.date}</small><br>
+                    <small>To: ${email.recipient}</small>
+                </a>
+            `;
+            emailList.appendChild(listItem);
+        });
+    }
+
+    // ページ読み込み時に初回のメールデータを取得
+    getEmails();
+
+    // 更新ボタンをクリックした際の処理
+    updateButton.addEventListener('click', function() {
+        getEmails();
+        clearEmailDetails();
+    });
+
+// メールをクリックした際の処理
+emailList.addEventListener('click', function(event) {
+    const listItem = event.target.closest('li');
+    if (listItem) {
+        selectedEmailId = listItem.dataset.id;
+        const selectedEmail = findEmailById(selectedEmailId);
+        if (selectedEmail) {
+            emailSender.textContent = selectedEmail.sender;
+            emailDate.textContent = selectedEmail.date;
+            emailRecipient.textContent = `To: ${selectedEmail.recipient}`;
+            emailSubject.textContent = selectedEmail.subject;
+            emailContent.textContent = selectedEmail.content;
+        }
+    }
+});
+
+
+    // メールIDを使ってメールを検索
+    function findEmailById(id) {
+        return data.find(email => email.id === parseInt(id));
+    }
+
+    // メール詳細をクリア
+    function clearEmailDetails() {
+        selectedEmailId = null;
+        emailSender.textContent = '';
+        emailDate.textContent = '';
+        emailRecipient.textContent = '';
+        emailSubject.textContent = '';
+        emailContent.textContent = '';
+    }
+});

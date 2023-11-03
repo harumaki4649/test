@@ -1,0 +1,103 @@
+/* ページ全体のスタイル */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* ヘッダーのスタイル */
+header {
+    background-color: #3498db;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+}
+
+/* コンテナ全体のスタイル */
+.container {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px;
+}
+
+/* メール一覧のスタイル */
+.inbox {
+    flex-basis: 60%;
+    background-color: #f2f2f2;
+    padding: 20px;
+    border-radius: 5px;
+    overflow-y: auto; /* メール一覧が高さを超えた場合、スクロールバーを表示 */
+    position: relative; /* 追加 */
+}
+
+.inbox ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.inbox li {
+    margin: 5px 0;
+    padding: 5px;
+    cursor: pointer;
+    background-color: #fff;
+    border-radius: 3px;
+}
+
+.inbox li:hover {
+    background-color: #e0e0e0;
+}
+
+/* 更新ボタンのスタイル */
+#update-button {
+    margin-top: 10px;
+    padding: 5px 10px;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+/* メール詳細のスタイル */
+.email-content {
+    flex-basis: 35%;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+}
+
+/* メール詳細内の要素のスタイル */
+#email-sender {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+#email-date {
+    font-size: 14px;
+    color: #777;
+    margin-bottom: 10px;
+}
+
+#email-recipient {
+    font-size: 14px;
+    color: #777;
+    margin-bottom: 10px;
+}
+
+#email-subject {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+/* 「取得中」メッセージのスタイル */
+#loading-message {
+    position: absolute; /* 追加 */
+    top: 50%; /* 追加 */
+    left: 50%; /* 追加 */
+    transform: translate(-50%, -50%); /* 追加 */
+    background-color: rgba(255, 255, 255, 0.8); /* 追加 */
+    padding: 10px; /* 追加 */
+    border-radius: 5px; /* 追加 */
+    display: none;
+}

@@ -1,0 +1,104 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f2f2f2;
+}
+
+.game-container {
+    margin: 100px auto;
+    padding: 100px;
+    width: 750px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    font-size: 25px;
+}
+
+#word_moto {
+    font-size: 35px;
+    line-height: 20px;
+}
+
+#word_hira {
+    font-size: 40px;
+    line-height: 20px;
+}
+
+#word_roma {
+    font-size: 35px;
+    line-height: 20px;
+}
+
+#input-status {
+    font-size: 25px;
+    line-height: 20px;
+}
+
+#score-display {
+    font-size: 30px;
+    font-weight: bold;
+    display: inline-block;
+}
+
+.completed {
+    color: green;
+}
+
+.in-progress {
+    color: orange; /* 入力中の文字色を設定 */
+}
+
+#time-display {
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+button {
+    padding: 15px 30px;
+    border: none;
+    border-radius: 8px;
+    background: #3498db;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+button:hover {
+    background: #217dbb;
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+/* インプットボックスのスタイリング */
+input {
+    width: 200px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    font-size: 16px;
+    text-align: center; /* 入力されたテキストを中央に配置 */
+}
+
+
+/* フォーカス時のスタイル */
+input:focus {
+    border-color: #48a7f2;
+    }
+
+input::placeholder {
+    text-align: center; /* placeholder を中央に配置する */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    color: #999; /* placeholder の色を設定 */
+    text-align: center; /* placeholder を中央に配置する */
+}

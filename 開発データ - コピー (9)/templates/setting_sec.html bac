@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>アカウント設定</title>
+    <style>
+        /* 既存のCSSスタイル */
+        .custom-checkbox {
+            position: relative;
+            display: inline-block;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .custom-checkbox input {
+            display: none;
+        }
+
+        .checkmark {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 25px;
+            width: 25px;
+            background-color: #eee;
+            border-radius: 5px;
+        }
+
+        .custom-checkbox input:checked + .checkmark:after {
+            content: "";
+            position: absolute;
+            display: block;
+            width: 12px;
+            height: 12px;
+            background-color: #007bff;
+            border-radius: 3px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>アカウント設定</h1>
+        <div class="dashboard">
+            <!-- フラッシュメッセージの表示 -->
+            <div class="content">
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                    {% if messages %}
+                        <ul class="flashes">
+                            {% for category, message in messages %}
+                                <li class="{{ category }}">{{ message }}</li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+                {% endwith %}
+            </div>
+            <form method="post">
+                <!-- セキュリティオプションのカスタマイズされたチェックボックス -->
+                <div class="custom-checkbox">
+                    <input type="checkbox" id="security" name="security" {% if security_enabled == 1 %}checked{% endif %} value="1">
+                    <label class="checkmark"></label>
+                    <label for="security">セキュリティオプション</label>
+                </div>
+                <button type="submit" class="btn2">保存</button>
+                <div class="dashboard">
+                    <a href="{{ url_for('dashboard') }}" class="btn btn-logout">ダッシュボード</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

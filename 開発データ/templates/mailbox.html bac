@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>メール受信サイト</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='mailbox/css/style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>メール受信サイト</h1>
+    </header>
+    <main>
+        <div class="container">
+            <div class="inbox">
+                <!-- メール一覧が表示されるエリア -->
+                <ul id="email-list"></ul>
+                <button id="update-button">更新</button>
+                <div id="loading-message" style="display: none;">取得中...</div>
+            </div>
+            <div class="email-content">
+                <!-- 選択したメールの内容が表示されるエリア -->
+                <h2 id="email-sender"></h2>
+                <p id="email-date"></p>
+                <p id="email-recipient"></p>
+                <h2 id="email-subject"></h2>
+                <div id="email-content">
+                    <div id="email-content-body"></div> <!-- テキスト本文 -->
+                    <div id="email-content-body-html"></div> <!-- HTML本文 -->
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="{{ url_for('static', filename='mailbox/js/script.js') }}"></script>
+</body>
+</html>
